@@ -27,8 +27,8 @@ export default class App extends Component {
       .then((data) => this.setState({ products: data }));
   };
   render() {
-    let productInfo = { title: "ProductList" };
-    let categoryInfo = { title: "CategoryList" };
+    let productInfo = { title: "ProductListTest" };
+    let categoryInfo = { title: "CategoryListTest" };
     return (
       <div>
         <Container>
