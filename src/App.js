@@ -27,12 +27,19 @@ export default class App extends Component {
   };
   addToCart=(product)=>{
     let newCart = this.state.cart;
-    newCart.push({product:product,quantity:1});
-    this.setState({cart:newCart});
-  }
+    var addedItem = newCart.find(c=>c.product.id===product.id);
+    if(addedItem){
+      addedItem.quantity+=1;
+    }else{
+        newCart.push({product:product,quantity:1});
+
+      }
+      this.setState({cart:newCart});
+    }
+    
   render() {
-    let productInfo = { title: "ProductListTest" };
-    let categoryInfo = { title: "CategoryListTest" };
+    let productInfo = { title: "ProductList" };
+    let categoryInfo = { title: "CategoryList" };
     return (
       <div>
         <Container>
@@ -50,7 +57,7 @@ export default class App extends Component {
                 products={this.state.products}
                 addToCart={this.addToCart}
                 currentCategory={this.state.currentCategory}
-                changeCategory={this.changeCategory}
+                //changeCategory={this.changeCategory}
                 info={productInfo}
               />
             </Col>
